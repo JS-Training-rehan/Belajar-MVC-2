@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "name": "Ardi Pratama",
+    "type": "Full Time",
+    "expInYears": 5,
+    "members": [
+      {
+        "name": "Patra",
+        "type": "VIP",
+        "weight": 89,
+        "height": 1.7,
+        "id_card": "123004058248"
+      },
+      {
+        "name": "Bagus Rizki",
+        "type": "Reguler",
+        "weight": 57,
+        "height": 1.66,
+        "id_card": "129300405234"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Christy D.",
+    "type": "Part Time",
+    "expInYears": 1,
+    "members": [
+      {
+        "name": "Dito Bagus",
+        "type": "Reguler",
+        "weight": 78,
+        "height": 1.68,
+        "id_card": "427490582853"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Aldi Purnama",
+    "type": "Part Time",
+    "expInYears": 2,
+    "members": []
+  },
+  {
+    "id": 4,
+    "name": "Lulove Lunar",
+    "type": "Full Time",
+    "expInYears": 4,
+    "members": [
+      {
+        "name": "Andre Wira",
+        "type": "VIP",
+        "weight": 102,
+        "height": 1.8,
+        "id_card": "333219284027"
+      }
+    ]
+  }
+]
