@@ -1,19 +1,15 @@
-class View {    
-    static read(data){
-    
-    }
-    
-    static error(err){
-    
-    }
+class View {
+  static read(data) {
+    console.log(data);
+  }
 
-    static success(data){
-    
-    }
+  static error(err) {
+    console.log("Terjadi kesalahan ", err);
+  }
 
-    static BMI(data){
-    
-    }
+  static success(data) {}
+
+  static BMI(data) {}
 }
 
-module.exports = View
+module.exports = View;

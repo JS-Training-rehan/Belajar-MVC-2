@@ -1,26 +1,24 @@
-const Model = require("../Models/model.js")
-const View = require("../Views/view.js")
+const Model = require("../Models/model.js");
+const View = require("../Views/view.js");
 
 class Controller {
-    static read(){
-        
-    }
+  static read() {
+    Model.readAll((err, data) => {
+      if (err) {
+        View.error(err);
+      } else {
+        View.read(data);
+      }
+    });
+  }
 
-    static addMember(){
-        
-    }
+  static addMember() {}
 
-    static removeMember(){
-        
-    }
+  static removeMember() {}
 
-    static train(){
-        
-    }
+  static train() {}
 
-    static showBMI(){
-        
-    }
+  static showBMI() {}
 }
 
-module.exports = Controller
+module.exports = Controller;

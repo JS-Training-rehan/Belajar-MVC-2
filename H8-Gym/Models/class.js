@@ -48,13 +48,13 @@ class Member {
 }
 
 class Factory {
-  static createTrainer(id, name, type, expInYear, members) {
+  static createTrainer(type, id, name, expInYears, members) {
     let classMember = this.createListMember(members);
 
-    if (type === "FullTimeTrainer") {
-      return new FullTimeTrainer(id, name, expInYear, classMember);
-    } else if (type === "PartTimeTrainer") {
-      return new PartTimeTrainer(id, name, expInYear, classMember);
+    if (type === "Full Time") {
+      return new FullTimeTrainer(id, name, expInYears, classMember);
+    } else if (type === "Part Time") {
+      return new PartTimeTrainer(id, name, expInYears, classMember);
     }
   }
   static createMember(name, type, id_card, weight, height) {
@@ -78,3 +78,5 @@ class Factory {
     return list;
   }
 }
+
+module.exports = Factory;
