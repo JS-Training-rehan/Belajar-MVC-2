@@ -12,9 +12,25 @@ class Controller {
     });
   }
 
-  static addMember() {}
+  static addMember(id, name, type, id_card, weight, height) {
+    Model.addMember(id, name, type, id_card, weight, height, (err, name) => {
+      if (err) {
+        View.error(err);
+      } else {
+        View.successAddMember(name, id);
+      }
+    });
+  }
 
-  static removeMember() {}
+  static removeMember(id, id_card) {
+    Model.removeMember(id, id_card, (err, id_card) => {
+      if (err) {
+        View.error(err);
+      } else {
+        View.successDelete(id_card);
+      }
+    });
+  }
 
   static train() {}
 
