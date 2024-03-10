@@ -17,6 +17,13 @@ class View {
     console.log(`berhasil menambahkan ${name} sebagai member trainer ${id}`);
   }
 
+  static successRemoveMember(id, id_card) {
+    console.log("==========");
+    console.log("==SUKSES==");
+    console.log("==========");
+    console.log(`berhasil menghapus ${id_card} sebagai member trainer ${id}`);
+  }
+
   static success(data) {}
 
   static BMI(data) {}

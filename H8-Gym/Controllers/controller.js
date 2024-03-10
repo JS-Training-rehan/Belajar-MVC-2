@@ -4,6 +4,7 @@ const View = require("../Views/view.js");
 class Controller {
   static read() {
     Model.readAll((err, data) => {
+      // console.log("data conttroler", data);
       if (err) {
         View.error(err);
       } else {
@@ -27,12 +28,20 @@ class Controller {
       if (err) {
         View.error(err);
       } else {
-        View.successDelete(id_card);
+        View.successRemoveMember(id, id_card);
       }
     });
   }
 
-  static train() {}
+  static trainWeight(id, name, weight) {
+    Model.trainWeight(id, weight, name, weight, (err, weight) => {
+      if (err) {
+        View.error(err);
+      } else {
+        View.successTrainWeight(id, name, weight);
+      }
+    });
+  }
 
   static showBMI() {}
 }

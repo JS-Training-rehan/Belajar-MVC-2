@@ -21,6 +21,14 @@ switch (comand) {
     Controller.removeMember(process.argv[3], process.argv[4]);
     break;
 
+  case "trainWeight":
+    Controller.trainWeight(process.argv[3], process.argv[4]);
+    break;
+
+  case "trainHeight":
+    Controller.trainHeight(process.argv[3], process.argv[4]);
+    break;
+
   default:
     break;
 }

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Ardi Pratama",
-    "type": "FullTimeMember",
+    "type": "Full Time",
     "expInYears": 5,
     "members": [
       {
@@ -24,7 +24,7 @@
   {
     "id": 2,
     "name": "Christy D.",
-    "type": "PartTimeTrainer",
+    "type": "Part Time",
     "expInYears": 1,
     "members": [
       {
@@ -39,15 +39,23 @@
   {
     "id": 3,
     "name": "Aldi Purnama",
-    "type": "PartTimeTrainer",
+    "type": "Part Time",
     "expInYears": 2,
     "members": []
   },
   {
     "id": 4,
     "name": "Lulove Lunar",
-    "type": "FullTimeMember",
+    "type": "Full Time",
     "expInYears": 4,
-    "members": []
+    "members": [
+      {
+        "name": "Andre Wira",
+        "type": "VIP",
+        "weight": 102,
+        "height": 1.8,
+        "id_card": "333219284027"
+      }
+    ]
   }
 ]

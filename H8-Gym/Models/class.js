@@ -42,7 +42,7 @@ class Member {
   getIdCard() {
     return this.#id_card;
   }
-  setIdCard() {
+  setIdCard(id_card) {
     this.#id_card = id_card;
   }
 }
