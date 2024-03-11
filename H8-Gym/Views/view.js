@@ -24,7 +24,14 @@ class View {
     console.log(`berhasil menghapus ${id_card} sebagai member trainer ${id}`);
   }
 
-  static success(data) {}
+  static successTrain(id_card) {
+    console.log("==========");
+    console.log("==SUKSES==");
+    console.log("==========");
+    console.log(
+      `member dengan id card ${id_card} berhasil menurunkan berat badan`
+    );
+  }
 
   static BMI(data) {}
 }

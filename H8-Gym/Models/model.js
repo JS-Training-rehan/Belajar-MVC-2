@@ -106,10 +106,19 @@ class Model {
       // console.log("newMember:", newMember);
       let indexTrainer = data.findIndex((trainer) => trainer.id === id);
       // console.log("indextrainer :", indexTrainer);
-
+      let trainerType = data.find((trainer) => trainer.type === newMember.type);
+      console.log("trainer type:", trainerType);
       if (!newMember) {
         return callback(err, null);
       }
+      if (type === "VIP" && trainerType.type !== "Full Time") {
+        return callback(
+          "VIP members hanya bisa dilatih Full Time Trainers",
+          null
+        );
+      }
+      console.log("tipe member:", type);
+      console.log("tipe Trainer:", trainer.type);
 
       if (newMember.members.some((member) => member.id_card === id_card)) {
         callback(`ID Card ${id_card} sudah di pakai`, null);
@@ -196,15 +205,17 @@ class Model {
       }
     });
   }
-  // static trainWeight(id, name, weight) {
-  //   id = parseInt(id);
+  static train(id_card, name, weight) {
+    id_card = parseInt(id_card);
 
-  //   this.readAll((err, data) => {
-  //     if (err) {
-  //       callback(err, null)
-  //     }
-  //     let trainWeightMember = dta
-  //   })
+    this.readAll((err, data) => {
+      if (err) {
+        callback(err, null);
+      }
+      console.log(data);
+    });
+    let memberId = data.find((trainer) => trainer.members.id_card === id_card);
+    console.log(trainMemberId);
+  }
 }
-
 module.exports = Model;
