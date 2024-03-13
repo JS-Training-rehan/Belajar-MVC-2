@@ -205,17 +205,56 @@ class Model {
       }
     });
   }
-  static train(id_card, name, weight) {
-    id_card = parseInt(id_card);
+  static train(id_card, weight, callback) {
+    id_card = String(id_card);
+    console.log(id_card);
+    weight = parseFloat(weight);
+    console.log(weight);
 
     this.readAll((err, data) => {
       if (err) {
         callback(err, null);
       }
-      console.log(data);
+      let trainMember = data.find((trainer) => {
+        return trainer.members.some(
+          (trainMember) => trainMember.id_card === id_card
+        );
+      });
+
+      let weightMember = trainMember.members.find(
+        (member) => member.id_card === id_card
+      ).weight;
+
+      let typeMember = trainMember.members.find(
+        (member) => member.id_card === id_card
+      ).type;
+      let newWeight;
+      if (typeMember === "VIP") {
+        newWeight = weightMember - 1;
+      } else {
+        newWeight = weightMember - 0.5;
+      }
+
+      console.log("ini variabel Train Member : ", trainMember);
+      console.log("bobot member:", newWeight);
+      console.log("tipe member:", typeMember);
+
+      data.forEach((trainer) => {
+        trainer.members.forEach((member) => {
+          if (member.id_card === id_card) {
+            member.weight = newWeight;
+          }
+        });
+      });
+
+      this.saveJSON(data, (err) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, newWeight);
+        }
+      });
     });
-    let memberId = data.find((trainer) => trainer.members.id_card === id_card);
-    console.log(trainMemberId);
   }
 }
 module.exports = Model;

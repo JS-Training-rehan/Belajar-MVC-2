@@ -33,12 +33,12 @@ class Controller {
     });
   }
 
-  static train(id, id_card, weight) {
-    Model.train(id, id_card, weight, (err, weight) => {
+  static train(id_card, weight) {
+    Model.train(id_card, weight, (err, weight) => {
       if (err) {
         View.error(err);
       } else {
-        View.successTrain(id, id_card, weight);
+        View.successTrain(id_card, weight);
       }
     });
   }

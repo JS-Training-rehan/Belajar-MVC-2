@@ -24,12 +24,12 @@ class View {
     console.log(`berhasil menghapus ${id_card} sebagai member trainer ${id}`);
   }
 
-  static successTrain(id_card) {
+  static successTrain(id_card, weight) {
     console.log("==========");
     console.log("==SUKSES==");
     console.log("==========");
     console.log(
-      `member dengan id card ${id_card} berhasil menurunkan berat badan`
+      `member dengan id card ${id_card} berhasil menurunkan berat badan menjadi ${weight}`
     );
   }
 
