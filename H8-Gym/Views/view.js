@@ -33,7 +33,14 @@ class View {
     );
   }
 
-  static BMI(data) {}
+  static dataBMI(bmiData) {
+    for (const trainerName in bmiData) {
+      if (bmiData.hasOwnProperty(trainerName)) {
+        console.log(`Trainer: ${trainerName}`);
+        console.table(bmiData[trainerName]);
+      }
+    }
+  }
 }
 
 module.exports = View;

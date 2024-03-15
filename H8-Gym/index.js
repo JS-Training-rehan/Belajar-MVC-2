@@ -25,6 +25,10 @@ switch (comand) {
     Controller.train(process.argv[3]);
     break;
 
+  case "bmi":
+    Controller.showBMI();
+    break;
+
   default:
     break;
 }

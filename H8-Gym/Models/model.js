@@ -103,22 +103,23 @@ class Model {
       // console.log(this.readAll);
       // index
       let newMember = data.find((trainer) => trainer.id === id);
+      if (!newMember) {
+        return callback(err, null);
+      }
       // console.log("newMember:", newMember);
       let indexTrainer = data.findIndex((trainer) => trainer.id === id);
       // console.log("indextrainer :", indexTrainer);
       let trainerType = data.find((trainer) => trainer.type === newMember.type);
       console.log("trainer type:", trainerType);
-      if (!newMember) {
-        return callback(err, null);
-      }
+
       if (type === "VIP" && trainerType.type !== "Full Time") {
         return callback(
           "VIP members hanya bisa dilatih Full Time Trainers",
           null
         );
       }
-      console.log("tipe member:", type);
-      console.log("tipe Trainer:", trainer.type);
+      // console.log("tipe member:", type);
+      // console.log("tipe Trainer:", trainer.type);
 
       if (newMember.members.some((member) => member.id_card === id_card)) {
         callback(`ID Card ${id_card} sudah di pakai`, null);
@@ -254,6 +255,40 @@ class Model {
           callback(null, newWeight);
         }
       });
+    });
+  }
+  //BMI
+  static calculateBMI(callback) {
+    this.readAll((err, data) => {
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      const bmiData = [];
+
+      data.forEach((trainer) => {
+        if (trainer.members.length > 0) {
+          trainer.members.forEach((member) => {
+            const height = member.height * member.height;
+            const bmi = member.weight / height;
+            if (!bmiData[trainer.name]) {
+              bmiData[trainer.name] = [];
+            }
+
+            bmiData[trainer.name].push({
+              Member: member.name,
+              Weight: member.weight,
+              Height: member.height,
+              BMI: bmi.toFixed(2),
+            });
+          });
+        }
+      });
+
+      callback(null, bmiData);
+      // console.log(`Trainer: ${trainerName}`);
+      // console.table(bmiData[trainerName]);
     });
   }
 }

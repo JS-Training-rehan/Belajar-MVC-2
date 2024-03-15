@@ -43,7 +43,15 @@ class Controller {
     });
   }
 
-  static showBMI() {}
+  static showBMI() {
+    Model.calculateBMI((err, bmiData) => {
+      if (err) {
+        View.error(err);
+      } else {
+        View.dataBMI(bmiData);
+      }
+    });
+  }
 }
 
 module.exports = Controller;

@@ -39,6 +39,13 @@ class Member {
     this.weight = weight;
     this.height = height;
   }
+
+  calculateBMI() {
+    const heightInMeter = this.height / 100;
+    const bmi = this.weight / (heightInMeter * heightInMeter);
+    return bmi;
+  }
+
   getIdCard() {
     return this.#id_card;
   }
